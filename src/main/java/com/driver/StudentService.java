@@ -21,7 +21,7 @@ public class StudentService {
     }
 
     public void addStudentTeacherPair(String student, String teacher) {
-        addStudentTeacherPair(student, teacher);
+        studentRepository.addStudentTeacherPair(student, teacher);
     }
     public Student getStudentByName(String studentName) {
         return studentRepository.getStudentByName(studentName);
@@ -29,8 +29,8 @@ public class StudentService {
     public Teacher getTeacherByName(String teacherName) {
         return studentRepository.getTeacherByName(teacherName);
     }
-    public List<String> getStudentsByTeacherName(String director) {
-        return studentRepository.getStudentsByTeacherName(director);
+    public List<String> getStudentsByTeacherName(String teacher) {
+        return studentRepository.getStudentsByTeacherName(teacher);
     }
     public List<String> getAllStudents() {
         return studentRepository.getAllStudents();

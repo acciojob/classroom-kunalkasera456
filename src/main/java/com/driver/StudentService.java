@@ -24,7 +24,7 @@ public class StudentService {
         addStudentTeacherPair(student, teacher);
     }
     public Student getStudentByName(String studentName) {
-        return StudentRepository.getStudentByName(studentName);
+        return studentRepository.getStudentByName(studentName);
     }
     public Teacher getTeacherByName(String teacherName) {
         return studentRepository.getTeacherByName(teacherName);

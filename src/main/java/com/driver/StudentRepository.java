@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public class StudentRepository {
 
-    private static HashMap<String, Student> studentMap;
+    private  HashMap<String, Student> studentMap;
     private HashMap<String, Teacher> teacherMap;
     private HashMap<String, List<String>> teacherStudentMap;
 
@@ -41,7 +41,7 @@ public class StudentRepository {
             teacherStudentMap.put(teacher, currentStudents);
         }
     }
-    public static Student getStudentByName(String student) {
+    public  Student getStudentByName(String student) {
         return studentMap.get(student);
     }
     public Teacher getTeacherByName(String teacher) {

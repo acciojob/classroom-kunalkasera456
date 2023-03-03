@@ -30,7 +30,8 @@ public class StudentRepository {
 
     public void addStudentTeacherPair(String student, String teacher) {
         if(teacherStudentMap.containsKey(teacher)) {
-            List<String> teacher_list = (List<String>) teacherMap.get(teacher);
+            List<String> teacher_list = new ArrayList<>();
+            teacherStudentMap.get(teacher);
             teacher_list.add(student);
             teacherStudentMap.put(teacher, teacher_list);
         } else {
@@ -45,15 +46,19 @@ public class StudentRepository {
     public Teacher getTeacherByName(String teacher) {
         return teacherMap.get(teacher);
     }
-    public List<String> getStudentsByTeacherName(String director) {
+    public List<String> getStudentsByTeacherName(String teacher) {
         List<String> studentList = new ArrayList<>();
-        if(teacherStudentMap.containsKey(director)) {
-            studentList = teacherStudentMap.get(director);
+        if(teacherStudentMap.containsKey(teacher)) {
+            studentList = teacherStudentMap.get(teacher);
         }
         return studentList;
     }
     public List<String> getAllStudents() {
-        return new ArrayList<>(studentMap.keySet());
+        List<String> student_list = new ArrayList<>();
+        for(String e : studentMap.keySet()) {
+            student_list.add(e);
+        }
+        return student_list;
     }
     public void deleteTeacherByName(String teacher) {
         List<String> students_list = new ArrayList<>();

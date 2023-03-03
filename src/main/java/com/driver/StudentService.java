@@ -1,45 +1,41 @@
 package com.driver;
 
-import com.sun.source.tree.BreakTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Service
 public class StudentService {
-
     @Autowired
-    StudentRepository studentRepository;
+    StudentRepository repository;
 
-    public void addStudent(Student student) {
-        studentRepository.addStudent(student);
+    public void addStudent(Student student){
+        repository.addStudent(student);
     }
-
-    public void addTeacher(Teacher teacher) {
-        studentRepository.addTeacher(teacher);
+    public void addTeacher(Teacher teacher){
+        repository.addTeacher(teacher);
     }
-
-    public void addStudentTeacherPair(String student, String teacher) {
-        studentRepository.addStudentTeacherPair(student, teacher);
+    public void addStudentTeacherPair(String student, String teacher){
+        repository.addStudentTeacherPair(student,teacher);
     }
-    public Student getStudentByName(String studentName) {
-        return studentRepository.getStudentByName(studentName);
+    public Student getStudentByName(String name){
+        return repository.getStudentByName(name);
     }
-    public Teacher getTeacherByName(String teacherName) {
-        return studentRepository.getTeacherByName(teacherName);
+    public Teacher getTeacherByName(String name){
+        return repository.getTeacherByName(name);
     }
-    public List<String> getStudentsByTeacherName(String teacher) {
-        return studentRepository.getStudentsByTeacherName(teacher);
+    public List<String> getStudentsByTeacherName(String teacher){
+        return repository.getStudentsByTeacherName(teacher);
     }
-    public List<String> getAllStudents() {
-        return studentRepository.getAllStudents();
+    public List<String> getAllStudents(){
+        return repository.getAllStudents();
     }
-    public void deleteTeacherByName(String teacher) {
-        studentRepository.deleteTeacherByName(teacher);
+    public void deleteTeacherByName(String teacher){
+        repository.deleteTeacherByName(teacher);
     }
-    public void deleteAllTeachers() {
-        studentRepository.deleteAllTeachers();
+    public void deleteAllTeachers(){
+        repository.deleteAllTeachers();
     }
-
 }

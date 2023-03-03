@@ -71,17 +71,12 @@ public class StudentRepository {
         }
     }
     public void deleteAllTeachers() {
-        HashSet<String> studentSet = new HashSet<>();
-        for(String teacher : teacherStudentMap.keySet()) {
-            for(String students : teacherStudentMap.keySet()) {
-                studentSet.add(students);
+        for (List<String> student_list: teacherStudentMap.values()){
+            for (String s: student_list){
+                studentMap.remove(s);
             }
         }
-
-        for(String e : studentSet) {
-            if(studentMap.containsKey(e)) {
-                studentMap.remove(e);
-            }
-        }
+        teacherMap.clear();
+        teacherStudentMap.clear();
     }
 }
